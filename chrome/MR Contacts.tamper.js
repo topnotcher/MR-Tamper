@@ -1,11 +1,24 @@
 // ==UserScript==
-// @name       MR Contacts
-// @namespace  http://derp/
-// @version    0.1
+// @name       MR SS Tweaks
+// @namespace  http://divinelunacy.com/mr-ss-tweaks
+// @version    0.2
 // @description  enter something useful
 // @match      http://mafiareturns.com/*
-// @copyright  2012+, You
+// @copyright  2013+, You
 // ==/UserScript==
+
+// These classes will be hidden on SS list
+var hide_classes = ['ca','hd','staff'];
+
+//this defines crews to mark on the list 
+var frienddata = {
+    "groups": {
+        "1": {"n":"Zalitz","s":"[Z]","c":220, 'crew': 2045},
+        "2": {"n":"Lynch","s":"[L]","c":100, 'crew': 1909},
+        "3": {"n":"SammyGravano","s":"[K]","c":300, 'crew': 1948}
+    },"contacts": {
+    }
+};
 
 function add_to_groups(user,friendata) {
 	var contact =  { 'n': user.n, 't': '', 'g' : [] };
@@ -21,19 +34,6 @@ function add_to_groups(user,friendata) {
 		frienddata.contacts[String(user.i)]  = contact;
 }
 
-
-// These classes will be WIPED from the ss list. 
-var hide_classes = ['ca','hd'];
-
-var frienddata = {
-    "groups": {
-        "1": {"n":"Zalitz","s":"[Z]","c":220, 'crew': 2045},
-        "2": {"n":"Lynch","s":"[L]","c":100, 'crew': 1909},
-        "3": {"n":"SammyGravano","s":"[K]","c":300, 'crew': 1948}
-    },"contacts": {
- //       "472939": {"n":"Zalitz","t":"","g":[1]}
-    }
-};
  
 var tmp = [];
  
