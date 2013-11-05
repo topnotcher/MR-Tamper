@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name       MR SS Tweaks
-// @namespace  http://divinelunacy.com/mr-ss-tweaks
+// @namespace  https://raw.github.com/topnotcher/MR-Tamper/master/chrome/ss_tweaks.tamper.js
 // @version    0.2
 // @description  enter something useful
 // @match      http://mafiareturns.com/*
