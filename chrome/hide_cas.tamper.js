@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name       MR Hide CAs
-// @namespace  http://derp/
-// @version    0.1
+// @namespace  http://divinelunacy.com/mr-hide-ca
+// @version    0.2
 // @description  enter something useful
 // @match      http://mafiareturns.com/*
-// @copyright  2012+, You
+// @copyright  2013+, Greg Bowser
 // ==/UserScript==
 
-// These classes will be WIPED from the ss list. 
-var hide_classes = ['ca','hd'];
+// These classes will be hidden from the ss list. 
+var hide_classes = ['ca','hd','staff'];
  
 var tmp = [];
  
