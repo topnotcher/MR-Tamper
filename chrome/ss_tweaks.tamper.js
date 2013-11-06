@@ -53,6 +53,9 @@ ui.ss.buildOnlineList = function(userinfo, friends, poker_active){
 	    var user = userinfo[i];
 	    var contact = null; 
     
+        if ( user.n == 'CaptainTeemo' )
+            user.n = 'Captain-SEXY AKA Morty <-- Mug this guy';
+        
 	    if ( hide_classes.indexOf( user.s ) == -1 )
 	        tmp.push(user);
         }
@@ -62,3 +65,6 @@ ui.ss.buildOnlineList = function(userinfo, friends, poker_active){
 
 // this should handle the initial load.
 ui.ss.buildOnlineList(ui.ss.userinfo, ui.ss.friends, ui.ss.poker_active);
+
+//nasty hack for highlighting
+ui.poller.poll();
