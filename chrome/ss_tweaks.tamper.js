@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       MR SS Tweaks
 // @namespace  https://raw.github.com/topnotcher/MR-Tamper/master/chrome/ss_tweaks.tamper.js
-// @version    0.9
+// @version    1.1
 // @description  enter something useful
 // @match      http://mafiareturns.com/*
 // @copyright  2013+, You
@@ -43,28 +43,24 @@ ui.ss.handleFriendData = function(data) {
     ui.ss._handleFriendData(data);
 }
 
-ui.ss._buildOnlineList = UI_SS.prototype.buildOnlineList;
-ui.ss.buildOnlineList = function(userinfo, friends, poker_active){
-    console.log('derp');
- 
+ui.ss._doBuild = UI_SS.prototype.doBuild;
+ui.ss.doBuild = function() {
 	var tmp = [];
  
-	for (var i = 0; i < userinfo.length; ++i ) {
-	    var user = userinfo[i];
+	for (var i = 0; i < this.userinfo.length; ++i ) {
+	    var user = this.userinfo[i];
 	    var contact = null; 
     
-        if ( user.n == 'CaptainTeemo' )
-            user.n = 'Captain-SEXY AKA Morty <-- Mug this guy';
-        
 	    if ( hide_classes.indexOf( user.s ) == -1 )
 	        tmp.push(user);
         }
 
-	this._buildOnlineList(tmp,friends,poker_active);
+	this.userinfo = tmp;
+	this._doBuild();
 }
 
 // this should handle the initial load.
-ui.ss.buildOnlineList(ui.ss.userinfo, ui.ss.friends, ui.ss.poker_active);
+ui.ss.doBuild();
 
 //nasty hack for highlighting
-ui.poller.poll();
+//ui.poller.poll();
