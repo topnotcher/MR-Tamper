@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name       MR SS Tweaks
 // @namespace  https://raw.github.com/topnotcher/MR-Tamper/master/chrome/ss_tweaks.tamper.js
-// @version    1.1
-// @description  enter something useful
+// @version    1.2
+// @description  GFYS
 // @match      http://mafiareturns.com/*
-// @copyright  2013+, You
+// @copyright  2013+, mario
 // ==/UserScript==
 
 // These classes will be hidden on SS list
@@ -50,10 +50,14 @@ ui.ss.doBuild = function() {
 	for (var i = 0; i < this.userinfo.length; ++i ) {
 	    var user = this.userinfo[i];
 	    var contact = null; 
-    
+
+		if ( user.i == 578878 )
+			user.n = 'DanTheManWithAPlanToBuyANewVan';
+
+
 	    if ( hide_classes.indexOf( user.s ) == -1 )
 	        tmp.push(user);
-        }
+	}
 
 	this.userinfo = tmp;
 	this._doBuild();
