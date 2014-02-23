@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       MR SS Tweaks
 // @namespace  https://raw.github.com/topnotcher/MR-Tamper/master/chrome/ss_tweaks.tamper.js
-// @version    1.2
+// @version    1.3
 // @description  GFYS
 // @match      http://mafiareturns.com/*
 // @copyright  2013+, mario
@@ -10,8 +10,8 @@
 // These classes will be hidden on SS list
 var hide_classes = ['ca','hd','staff'];
 
-ui.ss._handleFriendData = ui.ss.handleFriendData;
-ui.ss.handleFriendData = function(data) {
+ui.ss._update_friends_time_done = ui.ss.update_friends_time_done;
+ui.ss.update_friends_time_done = function(data) {
     if ( !data || !data.groups || !data.contacts ) return;
     
     var highlight_crews = {
@@ -52,7 +52,7 @@ ui.ss.doBuild = function() {
 	    var contact = null; 
 
 		if ( user.i == 578878 )
-			user.n = 'DanTheManWithAPlanToBuyANewVan';
+			user.n = 'DanTheManWithoutAPlan';
 
 
 	    if ( hide_classes.indexOf( user.s ) == -1 )
@@ -67,4 +67,4 @@ ui.ss.doBuild = function() {
 ui.ss.doBuild();
 
 //nasty hack for highlighting
-//ui.poller.poll();
+ui.ss.update_friends_time();
