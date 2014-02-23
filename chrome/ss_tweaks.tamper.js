@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       MR SS Tweaks
 // @namespace  https://raw.github.com/topnotcher/MR-Tamper/master/chrome/ss_tweaks.tamper.js
-// @version    1.3
+// @version    1.3.1
 // @description  GFYS
 // @match      http://mafiareturns.com/*
 // @copyright  2013+, mario
@@ -45,6 +45,12 @@ ui.ss.update_friends_time_done = function(data) {
 
 ui.ss._doBuild = UI_SS.prototype.doBuild;
 ui.ss.doBuild = function() {
+    
+	//if there are contacts, then update the conacts first
+    //this makes _highlight_crew_... work
+	if (ui.ss.contacts_by_id)
+    	ui.ss.update_friends_time_done({groups: ui.ss.contact_groups, contacts:ui.ss.contacts_by_id});
+    
 	var tmp = [];
  
 	for (var i = 0; i < this.userinfo.length; ++i ) {
@@ -67,4 +73,7 @@ ui.ss.doBuild = function() {
 ui.ss.doBuild();
 
 //nasty hack for highlighting
-ui.ss.update_friends_time();
+if (ui.ss.contacts_by_id)
+    ui.ss.update_friends_time_done({groups: ui.ss.contact_groups, contacts:ui.ss.contacts_by_id});
+else
+	ui.ss.update_friends_time();
