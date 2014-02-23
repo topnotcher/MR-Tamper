@@ -40,7 +40,7 @@ ui.ss.update_friends_time_done = function(data) {
         }       
     }
     
-    ui.ss._handleFriendData(data);
+    ui.ss._update_friends_time_done(data);
 }
 
 ui.ss._doBuild = UI_SS.prototype.doBuild;
