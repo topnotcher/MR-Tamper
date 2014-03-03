@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       MR SS Tweaks
 // @namespace  https://raw.github.com/topnotcher/MR-Tamper/master/chrome/ss_tweaks.tamper.js
-// @version    1.3.1
+// @version    1.3.2
 // @description  GFYS
 // @match      http://mafiareturns.com/*
 // @copyright  2013+, mario
@@ -57,9 +57,12 @@ ui.ss.doBuild = function() {
 	    var user = this.userinfo[i];
 	    var contact = null; 
 
+		//Oh, it's what you do to me!
+		//... Times Square couldn't shine as bright as you
 		if ( user.i == 578878 )
-			user.n = 'DanTheManWithoutAPlan';
-
+			//hey there, Danlilah, here's to you; this one's for you!
+			user.n = 'Danlilah';
+			
 
 	    if ( hide_classes.indexOf( user.s ) == -1 )
 	        tmp.push(user);
